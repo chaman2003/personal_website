@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Import Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <style>
+        /* General reset for body and html */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif; /* Default font */
+            background-color: rgba(0, 0, 0, 0.5); /* Dark background */
+            color: white; /* Default text color */
+            overflow:hidden;
+        }
+
+        /* Header styling */
+        header {
+            text-align: center;
+            padding: 20px 0; /* Top and bottom padding */
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)); /* Gradient background */
+        }
+
+        header h1 {
+            font-family: 'Permanent Marker', cursive; /* Fancy font for heading */
+            font-size: 28px;
+            margin: 0px 0; /* Margin top and bottom */
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Text shadow for effect */
+        }
+
+        header p {
+            font-family: 'Permanent Marker', cursive; /* Fancy font for paragraph */
+            font-size: 20px;
+            margin: 0; /* Remove default margin */
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Text shadow for effect */
+        }
+
+        /* Main content container */
+        .content {
+            position: relative;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 60px); /* Minimum height minus header height */
+            padding: 20px; /* Padding inside content */
+        }
+
+        /* Background video styling */
+        video#bg-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Sound toggle button */
+        button#sound-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 10;
+            padding: 10px 20px;
+            color: white;
+            border-radius: 10px;
+        }
+
+        /* Song info container */
+        #song-info {
+            font-family: 'Permanent Marker', cursive; 
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            color: #fff;
+            font-size: 15px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s ease;
+            z-index: 10;
+        }
+
+        /* Spotify playlist container */
+        #spotify-playlist {
+            font-family: 'Permanent Marker', cursive;
+            position: fixed;
+            top: 300px;
+            right: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 34x;
+            color: #fff;
+            font-size: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s ease;
+            z-index: 10;
+        }
+
+        /* Styling for links inside song-info and spotify-playlist */
+        #song-info a, #spotify-playlist a {
+            display: block;
+            color: #ffffff; /* Spotify green */
+            margin-top: 10px;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Hover effect for links */
+        #song-info a:hover, #spotify-playlist a:hover {
+            opacity: 0.7;
+        }
+
+        /* Image styling for playlist icons */
+        #spotify-playlist a img {
+            width: 80px; /* Adjust width as needed */
+            height: auto; /* Maintain aspect ratio */
+            margin-right: 10px; /* Optional: Space between icons */
+        }
+
+        /* Social platforms container */
+        .social-platforms, .technologies-known {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 25px;
+            position: fixed;
+            left: 20px;
+            transform: translateY(-50%);
+            z-index: 10;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+
+            text-align: left;
+        }
+
+        /* Positioning social platforms */
+        .social-platforms {
+            top: 36%; /* Adjust top position as needed */
+        }
+
+        /* Positioning technologies known */
+        .technologies-known {
+            top: 79.8%; /* Adjust top position as needed */
+        }
+
+        /* Styling for h2 headings in social platforms and technologies known */
+        .social-platforms h2, .technologies-known h2 {
+            font-family: 'Permanent Marker', cursive; /* Fancy font for headings */
+            font-size: 22px;
+            color: rgb(255, 255, 255);
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Text shadow for effect */
+        }
+
+        /* Styling for links in social platforms */
+        .social-platforms a {
+            display: block;
+            color: #fff; /* White text */
+            text-decoration: none;
+            margin-bottom: 10px;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Hover effect for links in social platforms */
+        .social-platforms a:hover {
+            opacity: 0.7;
+        }
+
+        /* Styling for images in social platforms */
+        .social-platforms img {
+            width: 20px;
+            height: 20px;
+            margin-right: 2px;
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+
+        /* Styling for ul and li in technologies known */
+        .technologies-known ul {
+            list-style-type: none;
+            padding: 20;
+            margin: 0px 0 0 0;
+        }
+
+        /* Styling for li in technologies known */
+        .technologies-known ul li {
+            font-size: 18px;
+            margin-bottom: 1px;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Text shadow for effect */
+        }
+    </style>
+    <script defer>
+        /* JavaScript for handling sound toggle */
+        document.addEventListener('DOMContentLoaded', () => {
+            const video = document.getElementById('bg-video');
+            const soundToggle = document.getElementById('sound-toggle');
+            const soundIcon = document.getElementById('sound-icon');
+            const songInfo = document.getElementById('song-info');
+            const bgMusic = document.getElementById('bg-music');
+
+            updateSoundToggleIcon();
+            soundToggle.addEventListener('click', () => {
+                video.muted = !video.muted;
+                bgMusic.muted = video.muted;
+
+                if (!video.muted) {
+                    bgMusic.play();
+                } else {
+                    bgMusic.pause();
+                }
+
+                updateSoundToggleIcon();
+            });
+
+            function updateSoundToggleIcon() {
+                soundIcon.innerHTML = video.muted ? '&#128263;' : '&#128266;';
+            }
+        });
+    </script>
+</head>
+<body>
+    <!-- Header section -->
+    <header>
+        <h1>Welcome</h1>
+        <p>Hi, I'm Chammy. Welcome to my website!</p>
+    </header>
+
+    <!-- Main content section -->
+    <div class="content">
+        <!-- Background video -->
+        <video id="bg-video" autoplay muted loop>
+            <source src="video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- Sound toggle button -->
+        <button id="sound-toggle">Sound <span id="sound-icon"></span></button>
+
+        <!-- Song info container -->
+        <div id="song-info">
+            <p>Currently playing:</p>
+            <span>Metamorphosis by Interworld</span>
+        </div>
+    </div>
+
+    <!-- Spotify playlist container -->
+    <div id="spotify-playlist">
+        <p>Spotify Playlist</p>
+        <a href="https://open.spotify.com/playlist/2z5Ji1dfXfnwbi4WNy9YVQ?si=30dfccf3e8614d14" target="_blank">
+            <img src="phonks.png" alt="Phonks Playlist"> Phonks Playlist
+        </a>
+        <a href="https://open.spotify.com/playlist/5njWH6ftL1FwkDY3zGoqX3?si=b84e8dec05c94904" target="_blank">
+            <img src="english.png" alt="English Playlist"> English Playlist
+        </a>
+        <a href="https://open.spotify.com/playlist/4L2WAFkBJcLT7A4GIRyx8F?si=d91999ecf19e475d" target="_blank">
+            <img src="hindi.png" alt="Hindi Playlist"> Hindi Playlist
+        </a>
+        <a href="https://open.spotify.com/playlist/3zW5JEf0peBJ6MDG3FuYfv?si=4ad75154e1cc42d3" target="_blank">
+            <img src="kannada.png" alt="Kannada Playlist"> Kannada Playlist
+        </a>
+    </div>
+    
+
+    <div class="social-platforms">
+        <h2>Social Platforms</h2>
+        <a href="https://www.linkedin.com/in/chaman2003/" target="_blank">
+            <img src="linkedin.png" alt="LinkedIn"> LinkedIn
+        </a>
+        <a href="https://github.com/chaman2003" target="_blank">
+            <img src="github.png" alt="GitHub"> GitHub
+        </a>
+        <a href="https://www.facebook.com/2003.chaman" target="_blank">
+            <img src="facebook.png" alt="Facebook"> Facebook
+        </a>
+        <a href="https://www.instagram.com/2003.chaman/" target="_blank">
+            <img src="instagram.png" alt="Instagram"> Instagram
+        </a>
+        <a href="https://t.me/KumarOP7952" target="_blank">
+            <img src="telegram.png" alt="Telegram"> Telegram
+        </a>
+        <a href="https://x.com/2003_chaman" target="_blank">
+            <img src="x.png" alt="X"> X
+        </a>
+    </div>
+
+
+<div class="technologies-known">
+    <h2>Technologies Known:</h2>
+    <ul>
+        <li><img src="c.png" alt="c Logo" style="width: 30px; height: auto; margin-right: 10px;"> C</li>
+        <li><img src="java.png" alt="java Logo" style="width: 30px; height: auto; margin-right: 10px;"> Java</li>
+        <li><img src="kotlin.png" alt="kotlin Logo" style="width: 30px; height: auto; margin-right: 10px;"> Kotlin</li>
+        <li><img src="html.png" alt="HTML5 Logo" style="width: 30px; height: auto; margin-right: 10px;"> HTML5</li>
+        <li><img src="css.png" alt="CSS3 Logo" style="width: 30px; height: auto; margin-right: 10px;"> CSS3</li>
+        <li><img src="js.png" alt="JavaScript Logo" style="width: 30px; height: auto; margin-right: 10px;"> JavaScript</li>
+    </ul>
+</div>
