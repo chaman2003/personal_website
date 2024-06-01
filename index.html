@@ -13,7 +13,7 @@
             font-family: 'Roboto', sans-serif; /* Default font */
             background-color: rgba(0, 0, 0, 0.5); /* Dark background */
             color: white; /* Default text color */
-            overflow:hidden;
+            overflow-x: hidden; /* Hide horizontal overflow */
         }
 
         /* Header styling */
@@ -26,7 +26,7 @@
         header h1 {
             font-family: 'Permanent Marker', cursive; /* Fancy font for heading */
             font-size: 28px;
-            margin: 0px 0; /* Margin top and bottom */
+            margin: 0;
             font-weight: bold;
             color: white;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Text shadow for effect */
@@ -42,14 +42,12 @@
 
         /* Main content container */
         .content {
-            position: relative;
-            text-align: center;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            min-height: calc(100vh - 60px); /* Minimum height minus header height */
+            justify-content: center;
             padding: 20px; /* Padding inside content */
+            min-height: calc(100vh - 60px); /* Minimum height minus header height */
         }
 
         /* Background video styling */
@@ -98,10 +96,10 @@
         #spotify-playlist {
             font-family: 'Permanent Marker', cursive;
             position: fixed;
-            top: 300px;
+            top: 280px; /* Adjusted top position */
             right: 20px;
             background-color: rgba(0, 0, 0, 0.7);
-            padding: 34x;
+            padding: 34px;
             color: #fff;
             font-size: 20px;
             border-radius: 10px;
@@ -143,18 +141,18 @@
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-
             text-align: left;
         }
 
         /* Positioning social platforms */
         .social-platforms {
-            top: 36%; /* Adjust top position as needed */
+            top: 35%; /* Adjust top position as needed */
         }
 
         /* Positioning technologies known */
         .technologies-known {
-            top: 79.8%; /* Adjust top position as needed */
+            top: 725px; /* Adjusted top position */
+            left: 20px; /* Ensure alignment */
         }
 
         /* Styling for h2 headings in social platforms and technologies known */
@@ -191,16 +189,26 @@
         /* Styling for ul and li in technologies known */
         .technologies-known ul {
             list-style-type: none;
-            padding: 20;
-            margin: 0px 0 0 0;
+            padding: 0;
+            margin: 0;
         }
 
         /* Styling for li in technologies known */
         .technologies-known ul li {
             font-size: 18px;
-            margin-bottom: 1px;
+            margin-bottom: 5px;
             color: white;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Text shadow for effect */
+        }
+
+        /* Media query for responsive adjustments */
+        @media (max-width: 768px) {
+            #spotify-playlist {
+                top: 560px; /* Adjusted top position for smaller screens */
+            }
+            .technologies-known {
+                top: 760px; /* Adjusted top position for smaller screens */
+            }
         }
     </style>
     <script defer>
@@ -251,6 +259,8 @@
         <button id="sound-toggle">Sound <span id="sound-icon"></span></button>
 
         <!-- Song info container -->
+        <div
+        <!-- Song info container -->
         <div id="song-info">
             <p>Currently playing:</p>
             <span>Metamorphosis by Interworld</span>
@@ -273,8 +283,8 @@
             <img src="kannada.png" alt="Kannada Playlist"> Kannada Playlist
         </a>
     </div>
-    
 
+    <!-- Social platforms container -->
     <div class="social-platforms">
         <h2>Social Platforms</h2>
         <a href="https://www.linkedin.com/in/chaman2003/" target="_blank">
@@ -297,15 +307,17 @@
         </a>
     </div>
 
-
-<div class="technologies-known">
-    <h2>Technologies Known:</h2>
-    <ul>
-        <li><img src="c.png" alt="c Logo" style="width: 30px; height: auto; margin-right: 10px;"> C</li>
-        <li><img src="java.png" alt="java Logo" style="width: 30px; height: auto; margin-right: 10px;"> Java</li>
-        <li><img src="kotlin.png" alt="kotlin Logo" style="width: 30px; height: auto; margin-right: 10px;"> Kotlin</li>
-        <li><img src="html.png" alt="HTML5 Logo" style="width: 30px; height: auto; margin-right: 10px;"> HTML5</li>
-        <li><img src="css.png" alt="CSS3 Logo" style="width: 30px; height: auto; margin-right: 10px;"> CSS3</li>
-        <li><img src="js.png" alt="JavaScript Logo" style="width: 30px; height: auto; margin-right: 10px;"> JavaScript</li>
-    </ul>
-</div>
+    <!-- Technologies known container -->
+    <div class="technologies-known">
+        <h2>Technologies Known:</h2>
+        <ul>
+            <li><img src="c.png" alt="c Logo" style="width: 30px; height: auto; margin-right: 10px;"> C</li>
+            <li><img src="java.png" alt="java Logo" style="width: 30px; height: auto; margin-right: 10px;"> Java</li>
+            <li><img src="kotlin.png" alt="kotlin Logo" style="width: 30px; height: auto; margin-right: 10px;"> Kotlin</li>
+            <li><img src="html.png" alt="HTML5 Logo" style="width: 30px; height: auto; margin-right: 10px;"> HTML5</li>
+            <li><img src="css.png" alt="CSS3 Logo" style="width: 30px; height: auto; margin-right: 10px;"> CSS3</li>
+            <li><img src="js.png" alt="JavaScript Logo" style="width: 30px; height: auto; margin-right: 10px;"> JavaScript</li>
+        </ul>
+    </div>
+</body>
+</html>
