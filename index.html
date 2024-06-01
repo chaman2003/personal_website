@@ -201,15 +201,63 @@
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Text shadow for effect */
         }
 
-        /* Media query for responsive adjustments */
         @media (max-width: 768px) {
-            #spotify-playlist {
-                top: 560px; /* Adjusted top position for smaller screens */
-            }
-            .technologies-known {
-                top: 760px; /* Adjusted top position for smaller screens */
-            }
-        }
+    /* Adjustments for smaller screens */
+    .social-platforms {
+        top: 10%;
+        left: 10px;
+        padding: 20px;
+        width: calc(100% - 40px);
+        text-align: center;
+        transform: translateY(0);
+    }
+
+    #spotify-playlist {
+        top: 20%;
+        right: 10px;
+        padding: 20px;
+        width: calc(100% - 40px);
+        text-align: center;
+    }
+
+    .technologies-known {
+        top: 55%;
+        left: 10px;
+        padding: 20px;
+        width: calc(100% - 40px);
+    }
+
+    .social-platforms h2, .technologies-known h2 {
+        font-size: 18px;
+    }
+
+    .technologies-known ul li {
+        font-size: 16px;
+    }
+
+    #song-info {
+        top: 80px;
+        right: 10px;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    #sound-toggle {
+        top: 20px;
+        right: 10px;
+        padding: 10px 15px;
+        font-size: 16px;
+    }
+
+    #spotify-playlist a img {
+        width: 60px;
+    }
+
+    .social-platforms a {
+        margin-bottom: 5px;
+    }
+}
+
     </style>
     <script defer>
         /* JavaScript for handling sound toggle */
