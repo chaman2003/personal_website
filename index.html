@@ -5,52 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Import Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <!-- Import Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* General reset for body and html */
         body, html {
             margin: 0;
             padding: 0;
-            font-family: 'Roboto', sans-serif; /* Default font */
-            background-color: rgba(0, 0, 0, 0.5); /* Dark background */
-            color: white; /* Default text color */
-            overflow-x: hidden; /* Hide horizontal overflow */
+            font-family: 'Roboto', sans-serif;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            overflow-x: hidden;
         }
 
-        /* Header styling */
         header {
             text-align: center;
-            padding: 20px 0; /* Top and bottom padding */
-            background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)); /* Gradient background */
+            padding: 20px 0;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8));
         }
 
         header h1 {
-            font-family: 'Permanent Marker', cursive; /* Fancy font for heading */
+            font-family: 'Permanent Marker', cursive;
             font-size: 28px;
             margin: 0;
             font-weight: bold;
             color: white;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Text shadow for effect */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
         }
 
         header p {
-            font-family: 'Permanent Marker', cursive; /* Fancy font for paragraph */
+            font-family: 'Permanent Marker', cursive;
             font-size: 20px;
-            margin: 0; /* Remove default margin */
+            margin: 0;
             color: white;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Text shadow for effect */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
         }
 
-        /* Main content container */
         .content {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 20px; /* Padding inside content */
-            min-height: calc(100vh - 60px); /* Minimum height minus header height */
+            padding: 20px;
+            min-height: calc(100vh - 60px);
         }
 
-        /* Background video styling */
         video#bg-video {
             position: fixed;
             top: 0;
@@ -61,7 +59,6 @@
             z-index: -1;
         }
 
-        /* Sound toggle button */
         button#sound-toggle {
             position: fixed;
             top: 20px;
@@ -76,60 +73,43 @@
             border-radius: 10px;
         }
 
-        /* Song info container */
-        #song-info {
-            font-family: 'Permanent Marker', cursive; 
-            position: fixed;
-            top: 120px;
-            right: 20px;
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 30px;
-            color: #fff;
-            font-size: 15px;
-            border-radius: 20px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-            transition: background-color 0.3s ease;
-            z-index: 10;
-        }
-
-        /* Spotify playlist container */
-        #spotify-playlist {
+        #song-info, #spotify-playlist {
             font-family: 'Permanent Marker', cursive;
             position: fixed;
-            top: 280px; /* Adjusted top position */
             right: 20px;
             background-color: rgba(0, 0, 0, 0.7);
-            padding: 34px;
+            padding: 20px;
             color: #fff;
-            font-size: 20px;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
             transition: background-color 0.3s ease;
             z-index: 10;
         }
 
-        /* Styling for links inside song-info and spotify-playlist */
-        #song-info a, #spotify-playlist a {
+        #song-info {
+            top: 120px;
+            font-size: 15px;
+        }
+
+        #spotify-playlist {
+            top: 280px;
+            font-size: 20px;
+        }
+
+        #spotify-playlist a {
             display: block;
-            color: #ffffff; /* Spotify green */
+            color: #ffffff;
             margin-top: 10px;
             text-decoration: none;
             transition: opacity 0.3s ease;
         }
 
-        /* Hover effect for links */
-        #song-info a:hover, #spotify-playlist a:hover {
-            opacity: 0.7;
-        }
-
-        /* Image styling for playlist icons */
         #spotify-playlist a img {
-            width: 80px; /* Adjust width as needed */
-            height: auto; /* Maintain aspect ratio */
-            margin-right: 10px; /* Optional: Space between icons */
+            width: 80px;
+            height: auto;
+            margin-right: 10px;
         }
 
-        /* Social platforms container */
         .social-platforms, .technologies-known {
             font-family: 'Permanent Marker', cursive;
             font-size: 25px;
@@ -144,40 +124,28 @@
             text-align: left;
         }
 
-        /* Positioning social platforms */
         .social-platforms {
-            top: 35%; /* Adjust top position as needed */
+            top: 35%;
         }
 
-        /* Positioning technologies known */
         .technologies-known {
-            top: 725px; /* Adjusted top position */
-            left: 20px; /* Ensure alignment */
+            top: 725px;
         }
 
-        /* Styling for h2 headings in social platforms and technologies known */
         .social-platforms h2, .technologies-known h2 {
-            font-family: 'Permanent Marker', cursive; /* Fancy font for headings */
             font-size: 22px;
             color: rgb(255, 255, 255);
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Text shadow for effect */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
         }
 
-        /* Styling for links in social platforms */
         .social-platforms a {
             display: block;
-            color: #fff; /* White text */
+            color: #fff;
             text-decoration: none;
             margin-bottom: 10px;
             transition: opacity 0.3s ease;
         }
 
-        /* Hover effect for links in social platforms */
-        .social-platforms a:hover {
-            opacity: 0.7;
-        }
-
-        /* Styling for images in social platforms */
         .social-platforms img {
             width: 20px;
             height: 20px;
@@ -186,86 +154,80 @@
             vertical-align: middle;
         }
 
-        /* Styling for ul and li in technologies known */
         .technologies-known ul {
             list-style-type: none;
             padding: 0;
             margin: 0;
         }
 
-        /* Styling for li in technologies known */
         .technologies-known ul li {
             font-size: 18px;
             margin-bottom: 5px;
             color: white;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Text shadow for effect */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
         }
 
         @media (max-width: 768px) {
-    /* Adjustments for smaller screens */
-    .social-platforms {
-        top: 10%;
-        left: 10px;
-        padding: 20px;
-        width: calc(100% - 40px);
-        text-align: center;
-        transform: translateY(0);
-    }
+            .social-platforms {
+                top: 10%;
+                left: 10px;
+                padding: 20px;
+                width: calc(100% - 40px);
+                text-align: center;
+                transform: translateY(0);
+            }
 
-    #spotify-playlist {
-        top: 20%;
-        right: 10px;
-        padding: 20px;
-        width: calc(100% - 40px);
-        text-align: center;
-    }
+            #spotify-playlist {
+                top: 20%;
+                right: 10px;
+                padding: 20px;
+                width: calc(100% - 40px);
+                text-align: center;
+            }
 
-    .technologies-known {
-        top: 55%;
-        left: 10px;
-        padding: 20px;
-        width: calc(100% - 40px);
-    }
+            .technologies-known {
+                top: 55%;
+                left: 10px;
+                padding: 20px;
+                width: calc(100% - 40px);
+            }
 
-    .social-platforms h2, .technologies-known h2 {
-        font-size: 18px;
-    }
+            .social-platforms h2, .technologies-known h2 {
+                font-size: 18px;
+            }
 
-    .technologies-known ul li {
-        font-size: 16px;
-    }
+            .technologies-known ul li {
+                font-size: 16px;
+            }
 
-    #song-info {
-        top: 80px;
-        right: 10px;
-        padding: 10px;
-        font-size: 14px;
-    }
+            #song-info {
+                top: 80px;
+                right: 10px;
+                padding: 10px;
+                font-size: 14px;
+            }
 
-    #sound-toggle {
-        top: 20px;
-        right: 10px;
-        padding: 10px 15px;
-        font-size: 16px;
-    }
+            #sound-toggle {
+                top: 20px;
+                right: 10px;
+                padding: 10px 15px;
+                font-size: 16px;
+            }
 
-    #spotify-playlist a img {
-        width: 60px;
-    }
+            #spotify-playlist a img {
+                width: 60px;
+            }
 
-    .social-platforms a {
-        margin-bottom: 5px;
-    }
-}
-
+            .social-platforms a {
+                margin-bottom: 5px;
+            }
+        }
     </style>
     <script defer>
-        /* JavaScript for handling sound toggle */
         document.addEventListener('DOMContentLoaded', () => {
             const video = document.getElementById('bg-video');
             const soundToggle = document.getElementById('sound-toggle');
             const soundIcon = document.getElementById('sound-icon');
-            const songInfo = document.getElementById('song-info');
             const bgMusic = document.getElementById('bg-music');
 
             updateSoundToggleIcon();
@@ -306,8 +268,6 @@
         <!-- Sound toggle button -->
         <button id="sound-toggle">Sound <span id="sound-icon"></span></button>
 
-        <!-- Song info container -->
-        <div
         <!-- Song info container -->
         <div id="song-info">
             <p>Currently playing:</p>
