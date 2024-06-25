@@ -7,248 +7,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Permanent+Marker&display=swap" rel="stylesheet">
     <!-- Import Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: 'Roboto', sans-serif;
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            overflow-x: hidden;
-        }
-
-        header {
-            text-align: center;
-            padding: 20px 0;
-            background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8));
-        }
-
-        header h1 {
-            font-family: 'Permanent Marker', cursive;
-            font-size: 28px;
-            margin: 0;
-            font-weight: bold;
-            color: white;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-        }
-
-        header p {
-            font-family: 'Permanent Marker', cursive;
-            font-size: 20px;
-            margin: 0;
-            color: white;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-        }
-
-        .content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            min-height: calc(100vh - 60px);
-        }
-
-        video#bg-video {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-        }
-
-        button#sound-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: rgba(0, 0, 0, 0.5);
-            border: none;
-            font-size: 20px;
-            cursor: pointer;
-            z-index: 10;
-            padding: 10px 20px;
-            color: white;
-            border-radius: 10px;
-        }
-
-        #song-info, #spotify-playlist {
-            font-family: 'Permanent Marker', cursive;
-            position: fixed;
-            right: 20px;
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 20px;
-            color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-            transition: background-color 0.3s ease;
-            z-index: 10;
-        }
-
-        #song-info {
-            top: 120px;
-            font-size: 15px;
-        }
-
-        #spotify-playlist {
-            top: 280px;
-            font-size: 20px;
-        }
-
-        #spotify-playlist a {
-            display: block;
-            color: #ffffff;
-            margin-top: 10px;
-            text-decoration: none;
-            transition: opacity 0.3s ease;
-        }
-
-        #spotify-playlist a img {
-            width: 80px;
-            height: auto;
-            margin-right: 10px;
-        }
-
-        .social-platforms, .technologies-known {
-            font-family: 'Permanent Marker', cursive;
-            font-size: 25px;
-            position: fixed;
-            left: 20px;
-            transform: translateY(-50%);
-            z-index: 10;
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-            text-align: left;
-        }
-
-        .social-platforms {
-            top: 35%;
-        }
-
-        .technologies-known {
-            top: 725px;
-        }
-
-        .social-platforms h2, .technologies-known h2 {
-            font-size: 22px;
-            color: rgb(255, 255, 255);
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-        }
-
-        .social-platforms a {
-            display: block;
-            color: #fff;
-            text-decoration: none;
-            margin-bottom: 10px;
-            transition: opacity 0.3s ease;
-        }
-
-        .social-platforms img {
-            width: 20px;
-            height: 20px;
-            margin-right: 2px;
-            border-radius: 50%;
-            vertical-align: middle;
-        }
-
-        .technologies-known ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .technologies-known ul li {
-            font-size: 18px;
-            margin-bottom: 5px;
-            color: white;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-        }
-
-        @media (max-width: 768px) {
-            .social-platforms {
-                top: 10%;
-                left: 10px;
-                padding: 20px;
-                width: calc(100% - 40px);
-                text-align: center;
-                transform: translateY(0);
-            }
-
-            #spotify-playlist {
-                top: 20%;
-                right: 10px;
-                padding: 20px;
-                width: calc(100% - 40px);
-                text-align: center;
-            }
-
-            .technologies-known {
-                top: 55%;
-                left: 10px;
-                padding: 20px;
-                width: calc(100% - 40px);
-            }
-
-            .social-platforms h2, .technologies-known h2 {
-                font-size: 18px;
-            }
-
-            .technologies-known ul li {
-                font-size: 16px;
-            }
-
-            #song-info {
-                top: 80px;
-                right: 10px;
-                padding: 10px;
-                font-size: 14px;
-            }
-
-            #sound-toggle {
-                top: 20px;
-                right: 10px;
-                padding: 10px 15px;
-                font-size: 16px;
-            }
-
-            #spotify-playlist a img {
-                width: 60px;
-            }
-
-            .social-platforms a {
-                margin-bottom: 5px;
-            }
-        }
-    </style>
-    <script defer>
-        document.addEventListener('DOMContentLoaded', () => {
-            const video = document.getElementById('bg-video');
-            const soundToggle = document.getElementById('sound-toggle');
-            const soundIcon = document.getElementById('sound-icon');
-            const bgMusic = document.getElementById('bg-music');
-
-            updateSoundToggleIcon();
-            soundToggle.addEventListener('click', () => {
-                video.muted = !video.muted;
-                bgMusic.muted = video.muted;
-
-                if (!video.muted) {
-                    bgMusic.play();
-                } else {
-                    bgMusic.pause();
-                }
-
-                updateSoundToggleIcon();
-            });
-
-            function updateSoundToggleIcon() {
-                soundIcon.innerHTML = video.muted ? '&#128263;' : '&#128266;';
-            }
-        });
-    </script>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="scripts.js"></script>
+    <title>Welcome to Chammy's Website</title>
 </head>
 <body>
     <!-- Header section -->
@@ -264,9 +25,19 @@
             <source src="video.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
+    
+        <!-- Background music -->
+        <audio id="bg-music" loop>
+            <source src="music.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+
 
         <!-- Sound toggle button -->
-        <button id="sound-toggle">Sound <span id="sound-icon"></span></button>
+        <button id="sound-toggle">
+            Sound 
+            <span id="sound-icon"></span>
+        </button>
 
         <!-- Song info container -->
         <div id="song-info">
@@ -319,12 +90,12 @@
     <div class="technologies-known">
         <h2>Technologies Known:</h2>
         <ul>
-            <li><img src="c.png" alt="c Logo" style="width: 30px; height: auto; margin-right: 10px;"> C</li>
-            <li><img src="java.png" alt="java Logo" style="width: 30px; height: auto; margin-right: 10px;"> Java</li>
-            <li><img src="kotlin.png" alt="kotlin Logo" style="width: 30px; height: auto; margin-right: 10px;"> Kotlin</li>
-            <li><img src="html.png" alt="HTML5 Logo" style="width: 30px; height: auto; margin-right: 10px;"> HTML5</li>
-            <li><img src="css.png" alt="CSS3 Logo" style="width: 30px; height: auto; margin-right: 10px;"> CSS3</li>
-            <li><img src="js.png" alt="JavaScript Logo" style="width: 30px; height: auto; margin-right: 10px;"> JavaScript</li>
+            <li><img src="c.png" alt="C Logo"> C</li>
+            <li><img src="java.png" alt="Java Logo"> Java</li>
+            <li><img src="kotlin.png" alt="Kotlin Logo"> Kotlin</li>
+            <li><img src="html.png" alt="HTML5 Logo"> HTML5</li>
+            <li><img src="css.png" alt="CSS3 Logo"> CSS3</li>
+            <li><img src="js.png" alt="JavaScript Logo"> JavaScript</li>
         </ul>
     </div>
 </body>
