@@ -1,0 +1,190 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    overflow-x: hidden;
+}
+
+header {
+    text-align: center;
+    padding: 20px 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8));
+}
+
+header h1 {
+    margin: 0;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+header p {
+    margin: 0;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 20px;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    min-height: calc(100vh - 60px);
+}
+
+video#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+button#sound-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    z-index: 10;
+}
+
+#song-info, #spotify-playlist {
+    position: fixed;
+    right: 20px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    font-family: 'Permanent Marker', cursive;
+    transition: background-color 0.3s ease;
+    z-index: 10;
+}
+
+#song-info {
+    top: 120px;
+    font-size: 15px;
+}
+
+#spotify-playlist {
+    top: 280px;
+    font-size: 20px;
+}
+
+#spotify-playlist a {
+    display: block;
+    margin-top: 10px;
+    color: #ffffff;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+#spotify-playlist a img {
+    width: 80px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.social-platforms, .technologies-known {
+    position: fixed;
+    left: 20px;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    font-family: 'Permanent Marker', cursive;
+    font-size: 25px;
+    text-align: left;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.social-platforms {
+    top: 35%;
+}
+
+.technologies-known {
+    top: 725px;
+}
+
+.social-platforms h2, .technologies-known h2 {
+    font-size: 22px;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.social-platforms a {
+    display: block;
+    margin-bottom: 10px;
+    color: #fff;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.social-platforms img {
+    width: 20px;
+    height: 20px;
+    margin-right: 2px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.technologies-known ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.technologies-known ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    color: #fff;
+    font-size: 20px;
+    transition: transform 0.3s ease;
+}
+
+.technologies-known ul li img {
+    width: 30px;
+    height: auto;
+    margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+    #song-info, #spotify-playlist {
+        right: 10px;
+        padding: 15px;
+    }
+
+    button#sound-toggle {
+        top: 10px;
+        right: 10px;
+        padding: 5px 10px;
+        font-size: 16px;
+    }
+
+    .social-platforms, .technologies-known {
+        left: 10px;
+        padding: 15px;
+    }
+
+    .technologies-known {
+        top: 680px;
+    }
+}
