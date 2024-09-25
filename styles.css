@@ -155,36 +155,10 @@ button#sound-toggle {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
-    color: #fff;
-    font-size: 20px;
-    transition: transform 0.3s ease;
 }
 
 .technologies-known ul li img {
-    width: 30px;
-    height: auto;
+    width: 40px;
+    height: 40px;
     margin-right: 10px;
-}
-
-@media (max-width: 768px) {
-    #song-info, #spotify-playlist {
-        right: 10px;
-        padding: 15px;
-    }
-
-    button#sound-toggle {
-        top: 10px;
-        right: 10px;
-        padding: 5px 10px;
-        font-size: 16px;
-    }
-
-    .social-platforms, .technologies-known {
-        left: 10px;
-        padding: 15px;
-    }
-
-    .technologies-known {
-        top: 680px;
-    }
 }
